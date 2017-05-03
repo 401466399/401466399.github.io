@@ -151,6 +151,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-搭建git-github-hexo博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/03/搭建git-github-hexo博客/">搭建git+github+hexo博客</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/03/搭建git-github-hexo博客/" class="archive-article-date">
+  	<time datetime="2017-05-03T15:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.安装git（因为要给github上传文章）<br>git官网(<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a>)  </p>
+<p>2.安装node.js（因为Hexo是基于Node.js开发的）<br>node官网(<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>)  </p>
+<p>3.hexo安装及配置（配置到github上，使用github域名）  </p>
+<p>使用npm安装Hexo了<br>npm install -g hexo-cli<br>然后在本地目录创建一个文件夹,比如创建一个Hexo文件夹<br>然后cd Hexo，依次执行下面的命令<br>hexo init<br>npm install<br>Hexo文件夹下出现许多文件<br>启动本地这个Hexo服务 ：hexo server  然后打开浏览器，输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>                 </p>
+<p>主题更换<br>cd themes<br>git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia.git</a><br>Hexo文件夹下面的_config.yml文件，修改里面的theme为hexo-theme-yilia</p>
+<p>配置github<br>创建repository，名称：用户名.github.io</p>
+<p>配置本地Hexo<br>打开Hexo目录下的_config.yml，最下面添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: git@github.com:用户名/用户名.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>保存，cd到Hexo的根目录<br>依次执行下面的命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean  </div><div class="line">hexo g #generate</div><div class="line">hexo d #deployment</div></pre></td></tr></table></figure></p>
+<p>  如果成功的话在浏览器输入(<a href="http://用户名.github.io" target="_blank" rel="external">http://用户名.github.io</a>) 就可以访问博客了</p>
+<p>  如果发布的时候出现错误：ERROR Deployer not found: git 即用来发布文章的git没有安装<br>  执行命令 npm install hexo-deployer-git –save</p>
+<p>4.安装hexo-admin插件（可视化界面，写文章比较方便）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd Hexo</div><div class="line">npm install --save hexo-admin</div><div class="line">hexo server -d</div><div class="line">open http://localhost:4000/admin/</div></pre></td></tr></table></figure></p>
+<p>markdown语法参考：<br><a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a><br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a>  </p>
+<p>也可以手动创建文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;文章标题&quot;</div></pre></td></tr></table></figure></p>
+<p>执行下面命令即可直接发布文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure></p>
+<p>如果发布时候出现错误 ERROR Deployer not found: git<br>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br>npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">https://github.com/CodeFalling/hexo-asset-image</a> –save<br>然后把图片放入对应文章的配套文件夹下，比如1.png<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](github-hexo-blog/1.png)</div></pre></td></tr></table></figure></p>
+<p>更改代码样式主题<br>/source/css/_partial/highlight.styl</p>
+<p>参考：<a href="http://www.codertian.com/" target="_blank" rel="external">http://www.codertian.com/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/03/搭建git-github-hexo博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
