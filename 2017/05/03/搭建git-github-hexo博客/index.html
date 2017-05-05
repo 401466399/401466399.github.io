@@ -8,18 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>搭建git+github+hexo博客 | demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexo了install -g hexo-cli```  12345678910">
+  <meta name="description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexonpm install -g hexo-cli在本地目录创建一个文件夹,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建git+github+hexo博客">
 <meta property="og:url" content="http://yoursite.com/2017/05/03/搭建git-github-hexo博客/index.html">
 <meta property="og:site_name" content="demo">
-<meta property="og:description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexo了install -g hexo-cli```  12345678910">
-<meta property="og:image" content="http://yoursite.com/2017/05/03/搭建git-github-hexo博客/github-hexo-blog/1.png">
-<meta property="og:updated_time" content="2017-05-04T07:35:58.596Z">
+<meta property="og:description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexonpm install -g hexo-cli在本地目录创建一个文件夹,">
+<meta property="og:updated_time" content="2017-05-04T10:51:15.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建git+github+hexo博客">
-<meta name="twitter:description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexo了install -g hexo-cli```  12345678910">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/03/搭建git-github-hexo博客/github-hexo-blog/1.png">
+<meta name="twitter:description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexonpm install -g hexo-cli在本地目录创建一个文件夹,">
   
     <link rel="alternative" href="/atom.xml" title="demo" type="application/atom+xml">
   
@@ -48,7 +46,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/assets/img/touxiang.jpg" class="js-avatar">
+			<img src="/img/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">scl</a></h1>
@@ -102,7 +100,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/assets/img/touxiang.jpg" class="js-avatar">
+				<img src="/img/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">scl</h1>
@@ -170,17 +168,32 @@
         <p>1.安装git（因为要给github上传文章）<br>git官网(<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a>)  </p>
 <p>2.安装node.js（因为Hexo是基于Node.js开发的）<br>node官网(<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>)  </p>
 <p>3.hexo安装及配置（配置到github上，使用github域名）  </p>
-<p>使用npm安装Hexo了<br><figure class="highlight plain"><figcaption><span>install -g hexo-cli```  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">在本地目录创建一个文件夹,比如创建一个Hexo文件夹  ```cd Hexo```，依次执行下面的命令  </div><div class="line">```hexo init  </div><div class="line">npm install```  </div><div class="line">Hexo文件夹下出现许多文件  </div><div class="line">启动本地这个Hexo服务 ：```hexo server```  然后打开浏览器，输入http://0.0.0.0:4000/                 </div><div class="line"></div><div class="line">主题更换  </div><div class="line">```cd themes```   </div><div class="line">```git clone https://github.com/litten/hexo-theme-yilia.git```  </div><div class="line">Hexo文件夹下面的_config.yml文件，修改里面的```theme:hexo-theme-yilia</div></pre></td></tr></table></figure></p>
-<p>配置github<br>创建repository，名称：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">配置本地Hexo</div><div class="line">打开Hexo目录下的_config.yml，最下面添加</div></pre></td></tr></table></figure></p>
-<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-https-hexo-io-docs-deployment-html"><a href="#Docs-https-hexo-io-docs-deployment-html" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html"></a>Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">https://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repository: git@github.com:用户名/用户名.github.io.git<br>  branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">保存，cd到Hexo的根目录  </div><div class="line">依次执行下面的命令</div></pre></td></tr></table></figure></p>
-<p>  hexo clean<br>  hexo g #generate<br>  hexo d #deployment<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">如果成功的话在浏览器输入(http://用户名.github.io) 就可以访问博客了</div><div class="line"></div><div class="line">如果发布的时候出现错误：ERROR Deployer not found: git 即用来发布文章的git没有安装  </div><div class="line">执行命令 ```npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>4.安装hexo-admin插件（可视化界面，写文章比较方便）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd Hexo</div><div class="line">npm install --save hexo-admin</div><div class="line">hexo server -d</div><div class="line">open http://localhost:4000/admin/</div></pre></td></tr></table></figure></p>
-<p>markdown语法参考：<br><a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a><br><a href="https://segmentfault.com/markdown" target="_blank" rel="external">https://segmentfault.com/markdown</a>  </p>
-<p>也可以手动创建文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;文章标题&quot;</div></pre></td></tr></table></figure></p>
-<p>执行下面命令即可直接发布文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure></p>
-<p>如果发布时候出现错误 ERROR Deployer not found: git<br>执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br><figure class="highlight plain"><figcaption><span>install</span><a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">--save```   </a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">然后把图片放入对应文章的配套文件夹下，比如1.png</div></pre></td></tr></table></figure></p>
-<p><img src="github-hexo-blog/1.png" alt=""><br>```<br>更改代码样式主题<br>/source/css/_partial/highlight.styl</p>
+<p>使用npm安装Hexo<br><code>npm install -g hexo-cli</code><br>在本地目录创建一个文件夹,比如创建一个Hexo文件夹<br><code>cd Hexo</code><br>依次执行下面的命令<br><code>hexo init  
+npm install</code></p>
+<p>Hexo文件夹下出现许多文件<br>启动本地这个Hexo服务 ：<br><code>hexo server</code><br>然后打开浏览器，输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>                   </p>
+<p>主题更换<br><code>cd themes</code><br><code>git clone https://github.com/litten/hexo-theme-yilia.git</code><br>Hexo文件夹下面的_config.yml文件，修改里面的<code>theme:hexo-theme-yilia</code></p>
+<p>配置github<br>创建repository，名称：<code>用户名.github.io</code></p>
+<p>配置本地Hexo<br>打开Hexo目录下的_config.yml，最下面添加</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:用户名/用户名.github.io.git
+  branch: master
+</code></pre><p>保存，cd到Hexo的根目录<br>依次执行下面的命令  </p>
+<pre><code>hexo clean  
+  hexo g #generate  
+  hexo d #deployment
+</code></pre><p>  如果成功的话在浏览器输入(<a href="http://用户名.github.io" target="_blank" rel="external">http://用户名.github.io</a>) 就可以访问博客了</p>
+<p>  如果发布的时候出现错误：ERROR Deployer not found: git 即用来发布文章的git没有安装<br>  执行命令 <code>npm install hexo-deployer-git --save</code></p>
+<p>4.安装hexo-admin插件（可视化界面，写文章比较方便）  </p>
+<pre><code>cd Hexo
+npm install --save hexo-admin
+hexo server -d
+open http://localhost:4000/admin/
+</code></pre><p>markdown语法参考：<br><a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a>  </p>
+<p>也可以手动创建文章<br><code>hexo new &quot;文章标题&quot;</code><br>执行下面命令即可直接发布文章<br><code>hexo d -g</code><br>如果发布时候出现错误 ERROR Deployer not found: git<br>执行<br><code>npm install hexo-deployer-git --save</code>  </p>
+<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>然后把图片放入对应文章的配套文件夹下，比如1.png<br><code>![](github-hexo-blog/1.png)</code><br>更改代码样式主题<br>/source/css/_partial/highlight.styl  </p>
 <p>参考：<a href="http://www.codertian.com/" target="_blank" rel="external">http://www.codertian.com/</a></p>
 
       
@@ -199,7 +212,7 @@
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <img class="reward-img" src="/img/alipay.jpg">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
@@ -281,8 +294,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2017/05/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/05/03/中文维基百科做词向量-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">中文维基百科做词向量</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -293,27 +306,18 @@
 
 
   
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="搭建git-github-hexo博客" data-title="搭建git+github+hexo博客" data-url="http://yoursite.com/2017/05/03/搭建git-github-hexo博客/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
   
   
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2017/05/03/搭建git-github-hexo博客/", 
+    sourceId: "搭建git-github-hexo博客",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
   
@@ -493,8 +497,6 @@ MathJax.Hub.Queue(function() {
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     
