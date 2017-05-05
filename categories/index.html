@@ -87,16 +87,13 @@
 
 
 
-<meta name="description" content="1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分    2.使用Wikipedia Extractor 抽取正文文本wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。$ git clo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="中文维基百科做词向量">
-<meta property="og:url" content="http://yoursite.com/2017/05/03/中文维基百科做词向量-1/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
 <meta property="og:site_name" content="scl">
-<meta property="og:description" content="1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分    2.使用Wikipedia Extractor 抽取正文文本wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。$ git clo">
-<meta property="og:updated_time" content="2017-05-04T11:41:38.999Z">
+<meta property="og:updated_time" content="2017-05-05T10:32:47.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中文维基百科做词向量">
-<meta name="twitter:description" content="1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分    2.使用Wikipedia Extractor 抽取正文文本wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。$ git clo">
+<meta name="twitter:title" content="categories">
 
 
 
@@ -124,13 +121,19 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/03/中文维基百科做词向量-1/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
 
 
 
 
 
-  <title> 中文维基百科做词向量 | scl </title>
+  <title>
+  
+
+  
+    categories | scl
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -155,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,166 +243,18 @@
             
 
   <div id="posts" class="posts-expand">
-    
+  <header class="post-header">
 
-  
+	<h1 class="post-title" itemprop="name headline">categories</h1>
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/中文维基百科做词向量-1/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="sunchenglin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="scl">
-    </span>
+</header>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                中文维基百科做词向量
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T23:31:37+08:00">
-                2017-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
       
-      
-
-      
-        <p>1.下载中文wiki dump<br>链接是：<a href="http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="external">http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2</a><br>包括：标题、正文部分   </p>
-<p>2.使用Wikipedia Extractor 抽取正文文本<br>wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。<br><code>$ git clone https://github.com/attardi/wikiextractor.git wikiextractor</code><br><code>$ wikiextractor/WikiExtractor.py  -b 2000M -o zhwiki_extracted zhwiki-latest-pages-articles.xml.bz2</code></p>
-<p>由于这个工具就是一个python脚本，因此无需安装，-b  2000M表示以 2000M 为单位切分文件，默认是 500K。如果要将所有内容保存在同一个文件，那么就需要把这个参数设得大一下，-o 的参数指提取出来的文件放置的目录，抽取出来的文件的路径为zhwiki_extract/AA/wiki_00。更多参数可参考其github主页的说明。  </p>
-<p>3.繁简转换<br>维基百科的中文数据是繁简混杂的，里面包含大陆简体、台湾繁体、港澳繁体等多种不同的数据。有时候在一篇文章的不同段落间也会使用不同的繁简字。采用的工具也是开源的 OpenCC 转换器。使用方法如下：</p>
-<p>下载opencc：<a href="https://code.google.com/archive/p/opencc/downloads" target="_blank" rel="external">https://code.google.com/archive/p/opencc/downloads</a><br><code>opencc -i wiki_00 -o wiki_chs -c zht2zhs.ini</code></p>
-<p>维基百科使用的繁简转换方法是以词表为准，外加人工修正。人工修正之后的文字是这种格式，多数是为了解决各地术语名称不同的问题：</p>
-<blockquote>
-<p>他的主要成就包括Emacs及後來的GNU Emacs，GNU C 編譯器及-{zh-hant:GNU 除錯器;zh-hans:GDB 调试器}-。</p>
-</blockquote>
-<p>在python中使用下面代码替换：  </p>
-<pre><code>import re
-multi_version = re.compile(&apos;-\{.*?(zh-hans|zh-cn):([^;]*?)(;.*?)?\}-&apos;)  
-line = multi_version.sub(r&apos;\2&apos;, line)
-</code></pre><p>具体参考：<br><code>https://git.oschina.net/sunchenglin_/sougou_qarank/blob/master/wiki_de_symbol.py?dir=0&amp;filepath=wiki_de_symbol.py&amp;oid=a2b61ec915e159d88d4d6c6f31f4e9af1d8c788e&amp;sha=ba5721480198c73daf8511aaf3762e129acb1ddb</code></p>
-<p>keras生成word2vec词向量代码链接：</p>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/05/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/03/搭建git-github-hexo博客/" rel="prev" title="搭建git+github+hexo博客">
-                搭建git+github+hexo博客 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
 
 
@@ -583,10 +438,6 @@ line = multi_version.sub(r&apos;\2&apos;, line)
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
 
   
 
