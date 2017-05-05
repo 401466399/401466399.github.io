@@ -3,6 +3,24 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2017/05/03/%E6%90%AD%E5%BB%BAgit-github-hexo%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2017-05-05T14:43:54.682Z</lastmod>
+    <data>
+        <display>
+        <title>搭建git+github+hexo博客</title>
+        <pubTime>2017-05-03T15:32:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="教程" url="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -12,21 +30,6 @@
         <display>
         <title>中文维基百科做词向量</title>
         <pubTime>2017-05-03T15:31:37.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/05/03/%E6%90%AD%E5%BB%BAgit-github-hexo%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2017-05-04T10:51:15.843Z</lastmod>
-    <data>
-        <display>
-        <title>搭建git+github+hexo博客</title>
-        <pubTime>2017-05-03T15:32:00.000Z</pubTime>
         
          
            
