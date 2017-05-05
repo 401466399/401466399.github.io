@@ -335,38 +335,17 @@
       
         
           
-            <p>1.安装git（因为要给github上传文章）<br>git官网(<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a>)  </p>
-<p>2.安装node.js（因为Hexo是基于Node.js开发的）<br>node官网(<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>)  </p>
-<p>3.hexo安装及配置（配置到github上，使用github域名）  </p>
-<p>使用npm安装Hexo<br><code>npm install -g hexo-cli</code><br>在本地目录创建一个文件夹,比如创建一个Hexo文件夹<br><code>cd Hexo</code><br>依次执行下面的命令<br><code>hexo init  
-npm install</code></p>
-<p>Hexo文件夹下出现许多文件<br>启动本地这个Hexo服务 ：<br><code>hexo server</code><br>然后打开浏览器，输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>                   </p>
-<p>主题更换<br><code>cd themes</code><br><code>git clone https://github.com/litten/hexo-theme-yilia.git</code><br>Hexo文件夹下面的_config.yml文件，修改里面的<code>theme:hexo-theme-yilia</code></p>
-<p>配置github<br>创建repository，名称：<code>用户名.github.io</code></p>
-<p>配置本地Hexo<br>打开Hexo目录下的_config.yml，最下面添加</p>
-<pre><code># Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repository: git@github.com:用户名/用户名.github.io.git
-  branch: master
-</code></pre><p>保存，cd到Hexo的根目录<br>依次执行下面的命令  </p>
-<pre><code>hexo clean  
-  hexo g #generate  
-  hexo d #deployment
-</code></pre><p>  如果成功的话在浏览器输入(<a href="http://用户名.github.io" target="_blank" rel="external">http://用户名.github.io</a>) 就可以访问博客了</p>
-<p>  如果发布的时候出现错误：ERROR Deployer not found: git 即用来发布文章的git没有安装<br>  执行命令 <code>npm install hexo-deployer-git --save</code></p>
-<p>4.安装hexo-admin插件（可视化界面，写文章比较方便）  </p>
-<pre><code>cd Hexo
-npm install --save hexo-admin
-hexo server -d
-open http://localhost:4000/admin/
-</code></pre><p>markdown语法参考：<br><a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a>  </p>
-<p>也可以手动创建文章<br><code>hexo new &quot;文章标题&quot;</code><br>执行下面命令即可直接发布文章<br><code>hexo d -g</code><br>如果发布时候出现错误 ERROR Deployer not found: git<br>执行<br><code>npm install hexo-deployer-git --save</code>  </p>
-<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>然后把图片放入对应文章的配套文件夹下，比如1.png<br><code>![](github-hexo-blog/1.png)</code><br>更改代码样式主题<br>/source/css/_partial/highlight.styl  </p>
-<p>参考：<a href="http://www.codertian.com/" target="_blank" rel="external">http://www.codertian.com/</a><br><a href="https://www.zybuluo.com/heavysheep/note/665438" target="_blank" rel="external">https://www.zybuluo.com/heavysheep/note/665438</a><br><a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="external">http://theme-next.iissnan.com/tag-plugins.html</a></p>
-
-          
+          1.安装git（因为要给github上传文章）git官网(http://git-scm.com)  
+2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)  
+3.hexo安装及配置（配置到github上，使用github域名）
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/03/搭建git-github-hexo博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -496,23 +475,16 @@ open http://localhost:4000/admin/
       
         
           
-            <p>1.下载中文wiki dump<br>链接是：<a href="http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="external">http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2</a><br>包括：标题、正文部分   </p>
-<p>2.使用Wikipedia Extractor 抽取正文文本<br>wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。<br><code>$ git clone https://github.com/attardi/wikiextractor.git wikiextractor</code><br><code>$ wikiextractor/WikiExtractor.py  -b 2000M -o zhwiki_extracted zhwiki-latest-pages-articles.xml.bz2</code></p>
-<p>由于这个工具就是一个python脚本，因此无需安装，-b  2000M表示以 2000M 为单位切分文件，默认是 500K。如果要将所有内容保存在同一个文件，那么就需要把这个参数设得大一下，-o 的参数指提取出来的文件放置的目录，抽取出来的文件的路径为zhwiki_extract/AA/wiki_00。更多参数可参考其github主页的说明。  </p>
-<p>3.繁简转换<br>维基百科的中文数据是繁简混杂的，里面包含大陆简体、台湾繁体、港澳繁体等多种不同的数据。有时候在一篇文章的不同段落间也会使用不同的繁简字。采用的工具也是开源的 OpenCC 转换器。使用方法如下：</p>
-<p>下载opencc：<a href="https://code.google.com/archive/p/opencc/downloads" target="_blank" rel="external">https://code.google.com/archive/p/opencc/downloads</a><br><code>opencc -i wiki_00 -o wiki_chs -c zht2zhs.ini</code></p>
-<p>维基百科使用的繁简转换方法是以词表为准，外加人工修正。人工修正之后的文字是这种格式，多数是为了解决各地术语名称不同的问题：</p>
-<blockquote>
-<p>他的主要成就包括Emacs及後來的GNU Emacs，GNU C 編譯器及-{zh-hant:GNU 除錯器;zh-hans:GDB 调试器}-。</p>
-</blockquote>
-<p>在python中使用下面代码替换：  </p>
-<pre><code>import re
-multi_version = re.compile(&apos;-\{.*?(zh-hans|zh-cn):([^;]*?)(;.*?)?\}-&apos;)  
-line = multi_version.sub(r&apos;\2&apos;, line)
-</code></pre><p>具体参考：<br><code>https://git.oschina.net/sunchenglin_/sougou_qarank/blob/master/wiki_de_symbol.py?dir=0&amp;filepath=wiki_de_symbol.py&amp;oid=a2b61ec915e159d88d4d6c6f31f4e9af1d8c788e&amp;sha=ba5721480198c73daf8511aaf3762e129acb1ddb</code></p>
-<p>keras生成word2vec词向量代码链接：</p>
-
-          
+          1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分   
+2.使用Wikipedia Extractor 抽取正文文本wiki下载下
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/03/中文维基百科做词向量-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -642,17 +614,15 @@ line = multi_version.sub(r&apos;\2&apos;, line)
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/03/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
