@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分    2.使用Wikipedia Extractor 抽取正文文本wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。$ git clo">
+<meta name="description" content="1.序列预处理（1）填充序列pad_sequences from keras.preprocessing import sequence sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]] sequence.pad_sequences(sequences, maxlen=4, dtype=&amp;apos;int32&amp;apos;, padding=&amp;apos;po">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中文维基百科做词向量">
-<meta property="og:url" content="http://yoursite.com/2017/05/03/中文维基百科做词向量-1/index.html">
+<meta property="og:title" content="keras预处理教程">
+<meta property="og:url" content="http://yoursite.com/2017/05/06/中文维基百科做词向量-2/index.html">
 <meta property="og:site_name" content="sunchenglin">
-<meta property="og:description" content="1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分    2.使用Wikipedia Extractor 抽取正文文本wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。$ git clo">
-<meta property="og:updated_time" content="2017-05-04T11:41:38.999Z">
+<meta property="og:description" content="1.序列预处理（1）填充序列pad_sequences from keras.preprocessing import sequence sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]] sequence.pad_sequences(sequences, maxlen=4, dtype=&amp;apos;int32&amp;apos;, padding=&amp;apos;po">
+<meta property="og:updated_time" content="2017-05-06T15:40:39.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中文维基百科做词向量">
-<meta name="twitter:description" content="1.下载中文wiki dump链接是：http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2包括：标题、正文部分    2.使用Wikipedia Extractor 抽取正文文本wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。$ git clo">
+<meta name="twitter:title" content="keras预处理教程">
+<meta name="twitter:description" content="1.序列预处理（1）填充序列pad_sequences from keras.preprocessing import sequence sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]] sequence.pad_sequences(sequences, maxlen=4, dtype=&amp;apos;int32&amp;apos;, padding=&amp;apos;po">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/03/中文维基百科做词向量-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/06/中文维基百科做词向量-2/"/>
 
 
 
 
 
-  <title> 中文维基百科做词向量 | sunchenglin </title>
+  <title> keras预处理教程 | sunchenglin </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +249,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/中文维基百科做词向量-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/中文维基百科做词向量-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sunchenglin">
@@ -270,7 +270,7 @@
             
             
               
-                中文维基百科做词向量
+                keras预处理教程
               
             
           </h1>
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T23:31:37+08:00">
-                2017-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-06T22:21:09+08:00">
+                2017-05-06
               </time>
             
 
@@ -304,9 +304,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/03/中文维基百科做词向量-1/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/06/中文维基百科做词向量-2/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/03/中文维基百科做词向量-1/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/06/中文维基百科做词向量-2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -332,21 +332,66 @@
       
 
       
-        <p>1.下载中文wiki dump<br>链接是：<a href="http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="external">http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2</a><br>包括：标题、正文部分   </p>
-<p>2.使用Wikipedia Extractor 抽取正文文本<br>wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。<br><code>$ git clone https://github.com/attardi/wikiextractor.git wikiextractor</code><br><code>$ wikiextractor/WikiExtractor.py  -b 2000M -o zhwiki_extracted zhwiki-latest-pages-articles.xml.bz2</code></p>
-<p>由于这个工具就是一个python脚本，因此无需安装，-b  2000M表示以 2000M 为单位切分文件，默认是 500K。如果要将所有内容保存在同一个文件，那么就需要把这个参数设得大一下，-o 的参数指提取出来的文件放置的目录，抽取出来的文件的路径为zhwiki_extract/AA/wiki_00。更多参数可参考其github主页的说明。  </p>
-<p>3.繁简转换<br>维基百科的中文数据是繁简混杂的，里面包含大陆简体、台湾繁体、港澳繁体等多种不同的数据。有时候在一篇文章的不同段落间也会使用不同的繁简字。采用的工具也是开源的 OpenCC 转换器。使用方法如下：</p>
-<p>下载opencc：<a href="https://code.google.com/archive/p/opencc/downloads" target="_blank" rel="external">https://code.google.com/archive/p/opencc/downloads</a><br><code>opencc -i wiki_00 -o wiki_chs -c zht2zhs.ini</code></p>
-<p>维基百科使用的繁简转换方法是以词表为准，外加人工修正。人工修正之后的文字是这种格式，多数是为了解决各地术语名称不同的问题：</p>
-<blockquote>
-<p>他的主要成就包括Emacs及後來的GNU Emacs，GNU C 編譯器及-{zh-hant:GNU 除錯器;zh-hans:GDB 调试器}-。</p>
-</blockquote>
-<p>在python中使用下面代码替换：  </p>
-<pre><code>import re
-multi_version = re.compile(&apos;-\{.*?(zh-hans|zh-cn):([^;]*?)(;.*?)?\}-&apos;)  
-line = multi_version.sub(r&apos;\2&apos;, line)
-</code></pre><p>具体参考：<br><code>https://git.oschina.net/sunchenglin_/sougou_qarank/blob/master/wiki_de_symbol.py?dir=0&amp;filepath=wiki_de_symbol.py&amp;oid=a2b61ec915e159d88d4d6c6f31f4e9af1d8c788e&amp;sha=ba5721480198c73daf8511aaf3762e129acb1ddb</code></p>
-<p>keras生成word2vec词向量代码链接：</p>
+        <p>1.序列预处理<br>（1）填充序列pad_sequences</p>
+<pre><code>from keras.preprocessing import sequence
+sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]
+sequence.pad_sequences(sequences, maxlen=4, dtype=&apos;int32&apos;,
+padding=&apos;post&apos;, truncating=&apos;post&apos;, value=0.)
+</code></pre><p>   结果：  </p>
+<pre><code>array([[1, 2, 3, 0],
+   [1, 2, 3, 4],
+   [1, 2, 3, 4]], dtype=int32)
+</code></pre><p>参数<br>sequences：浮点数或整数构成的两层嵌套列表<br>maxlen：None或整数，为序列的最大长度。大于此长度的序列将被截短，小于此长度的序列将在后部填0.<br>dtype：返回的numpy array的数据类型<br>padding：‘pre’或‘post’，确定当需要补0时，在序列的起始还是结尾补<br>truncating：‘pre’或‘post’，确定当需要截断序列时，从起始还是结尾截断<br>value：浮点数，此值将在填充时代替默认的填充值0<br>返回值<br>返回形如(nb_samples,nb_timesteps)的2D张量 </p>
+<p>（2）跳字skipgrams    (词向量？)<br>（3）获取采样表make_sampling_table(词向量？)   </p>
+<p>2.文本预处理<br>（1）句子分割text_to_word_sequence（本函数将一个句子拆分成单词构成的列表）</p>
+<pre><code>from keras.preprocessing import text
+text1 = &quot;the rain in Spain falls mainly on the plain&quot;
+text.text_to_word_sequence(text1, lower=True, split=&quot; &quot;)  
+</code></pre><p>输出：</p>
+<pre><code>[&apos;the&apos;, &apos;rain&apos;, &apos;in&apos;, &apos;spain&apos;, &apos;falls&apos;, &apos;mainly&apos;, &apos;on&apos;, &apos;the&apos;, &apos;plain&apos;]
+</code></pre><p>参数<br>text：字符串，待处理的文本<br>filters：需要滤除的字符的列表或连接形成的字符串，例如标点符号。默认值为base_filter()，包含标点符号，制表符和换行符等<br>lower：布尔值，是否将序列设为小写形式<br>split：字符串，单词的分隔符，如空格<br>返回值<br>字符串列表  </p>
+<p>（2）one-hot编码(本函数将一段文本编码为one-hot形式的码，即仅记录词在词典中的下标。)    </p>
+<pre><code>from keras.preprocessing import text
+n = 13
+text1 = &quot;the rain in Spain falls mainly on the plain&quot;
+text.one_hot(text1, n, lower=True, split=&quot; &quot;)
+</code></pre><p>   输出：</p>
+<pre><code>[5, 6, 4, 7, 4, 5, 1, 5, 2]
+</code></pre><p>   感觉此方法不靠谱，按理在n&gt;=9时，输出中编码中不应有超过2次的编码。（本例中出现最多的单词为the，出现次数为2）</p>
+<p>  参数<br>n：整数，字典长度<br>返回值<br>整数列表，每个整数是[1,n]之间的值，代表一个单词（不保证唯一性，即如果词典长度不够，不同的单词可能会被编为同一个码）。  </p>
+<p>（3）分词器Tokenizer（用于向量化文本，或将文本转换为序列（即单词在字典中的下标构成的列表，从1算起）的类。）</p>
+<pre><code>In[1]:
+from keras.preprocessing import text
+import numpy as np
+tokenizer = text.Tokenizer(num_words=None,lower=True, split=&quot; &quot;)
+texts = [&quot; rain  in Spain falls mainly on the the plain&quot;,&quot;the rain &quot;,&quot;the rain in &quot;]
+tokenizer.fit_on_texts(np.asarray(texts))
+tokenizer.texts_to_sequences(np.asarray(texts))
+Out[1]:
+[[2, 3, 4, 5, 6, 7, 1, 1, 8], [1, 2], [1, 2, 3]]
+In[2]:
+tokenizer.texts_to_matrix(texts,mode=&apos;count&apos;) #‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’
+Out[2]:
+array([[ 0.,  2.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
+   [ 0.,  1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.],
+   [ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.]])
+In[3]:
+sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]
+# tokenizer.fit_on_sequences(sequences)
+tokenizer.sequences_to_matrix(sequences)
+Out[3]:  
+array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
+   [ 0.,  1.,  1.,  1.,  1.,  0.,  0.,  0.,  0.],
+   [ 0.,  1.,  1.,  1.,  1.,  1.,  1.,  0.,  0.]])
+</code></pre><p>   构造参数</p>
+<p>与text_to_word_sequence同名参数含义相同<br>nb_words：None或整数，处理的最大单词数量。若被设置为整数，则分词器将被限制为处理数据集中最常见的nb_words个单词<br>类方法</p>
+<p>fit_on_texts(texts)<br>texts：要用以训练的文本列表  </p>
+<p>texts_to_sequences(texts)<br>texts：待转为序列的文本列表<br>返回值：序列的列表，列表中每个序列对应于一段输入文本  </p>
+<p>texts_to_sequences_generator(texts)<br>本函数是texts_to_sequences的生成器函数版<br>texts：待转为序列的文本列表<br>返回值：每次调用返回对应于一段输入文本的序列  </p>
+<p>texts_to_matrix(texts, mode)：<br>texts：待向量化的文本列表<br>mode：‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’<br>返回值：形如(len(texts), nb_words)的numpy array  </p>
+<p>fit_on_sequences(sequences):<br>sequences：要用以训练的序列列表    </p>
+<p>sequences_to_matrix(sequences):<br>sequences：待向量化的序列列表<br>mode：‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’<br>返回值：形如(len(sequences), nb_words)的numpy array     </p>
+<p>属性<br>word_counts:字典，将单词（字符串）映射为它们在训练期间出现的次数。仅在调用fit_on_texts之后设置。<br>word_docs: 字典，将单词（字符串）映射为它们在训练期间所出现的文档或文本的数量。仅在调用fit_on_texts之后设置。<br>word_index: 字典，将单词（字符串）映射为它们的排名或者索引。仅在调用fit_on_texts之后设置。<br>document_count: 整数。分词器被训练的文档（文本或者序列）数量。仅在调用fit_on_texts或fit_on_sequences之后设置。      </p>
 
       
     </div>
@@ -383,8 +428,8 @@ line = multi_version.sub(r&apos;\2&apos;, line)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/03/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/05/05/中文维基百科做词向量/" rel="next" title="搭建git-github-hexo博客">
+                <i class="fa fa-chevron-left"></i> 搭建git-github-hexo博客
               </a>
             
           </div>
@@ -392,10 +437,6 @@ line = multi_version.sub(r&apos;\2&apos;, line)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/05/中文维基百科做词向量/" rel="prev" title="搭建git-github-hexo博客">
-                搭建git-github-hexo博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -625,9 +666,9 @@ line = multi_version.sub(r&apos;\2&apos;, line)
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/05/03/中文维基百科做词向量-1/';
-          this.page.identifier = '2017/05/03/中文维基百科做词向量-1/';
-          this.page.title = '中文维基百科做词向量';
+          this.page.url = 'http://yoursite.com/2017/05/06/中文维基百科做词向量-2/';
+          this.page.identifier = '2017/05/06/中文维基百科做词向量-2/';
+          this.page.title = 'keras预处理教程';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
