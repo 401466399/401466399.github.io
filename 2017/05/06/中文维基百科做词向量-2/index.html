@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="1.序列预处理（1）填充序列pad_sequences from keras.preprocessing import sequence sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]] sequence.pad_sequences(sequences, maxlen=4, dtype=&amp;apos;int32&amp;apos;, padding=&amp;apos;po">
+<meta name="description" content="1.序列预处理（1）填充序列pad_sequences123from keras.preprocessing import sequencesequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]sequence.pad_sequences(sequences, maxlen=4, dtype=&apos;int32&apos;,padding=&apos;post&apos;, truncating=">
 <meta property="og:type" content="article">
 <meta property="og:title" content="keras预处理教程">
 <meta property="og:url" content="http://yoursite.com/2017/05/06/中文维基百科做词向量-2/index.html">
 <meta property="og:site_name" content="sunchenglin">
-<meta property="og:description" content="1.序列预处理（1）填充序列pad_sequences from keras.preprocessing import sequence sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]] sequence.pad_sequences(sequences, maxlen=4, dtype=&amp;apos;int32&amp;apos;, padding=&amp;apos;po">
-<meta property="og:updated_time" content="2017-05-06T15:40:39.410Z">
+<meta property="og:description" content="1.序列预处理（1）填充序列pad_sequences123from keras.preprocessing import sequencesequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]sequence.pad_sequences(sequences, maxlen=4, dtype=&apos;int32&apos;,padding=&apos;post&apos;, truncating=">
+<meta property="og:updated_time" content="2017-05-07T13:44:39.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="keras预处理教程">
-<meta name="twitter:description" content="1.序列预处理（1）填充序列pad_sequences from keras.preprocessing import sequence sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]] sequence.pad_sequences(sequences, maxlen=4, dtype=&amp;apos;int32&amp;apos;, padding=&amp;apos;po">
+<meta name="twitter:description" content="1.序列预处理（1）填充序列pad_sequences123from keras.preprocessing import sequencesequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]sequence.pad_sequences(sequences, maxlen=4, dtype=&apos;int32&apos;,padding=&apos;post&apos;, truncating=">
 
 
 
@@ -342,22 +342,15 @@
       
 
       
-        <p>1.序列预处理<br>（1）填充序列pad_sequences</p>
-<pre><code>from keras.preprocessing import sequence
-sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]
-sequence.pad_sequences(sequences, maxlen=4, dtype=&apos;int32&apos;,
-padding=&apos;post&apos;, truncating=&apos;post&apos;, value=0.)
-</code></pre><p>   结果：  </p>
+        <p>1.序列预处理<br>（1）填充序列pad_sequences<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> sequence</div><div class="line">sequences = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</div><div class="line">sequence.pad_sequences(sequences, maxlen=<span class="number">4</span>, dtype=<span class="string">'int32'</span>,padding=<span class="string">'post'</span>, truncating=<span class="string">'post'</span>, value=<span class="number">0.</span>)</div></pre></td></tr></table></figure></p>
+<p>   结果：  </p>
 <pre><code>array([[1, 2, 3, 0],
    [1, 2, 3, 4],
    [1, 2, 3, 4]], dtype=int32)
 </code></pre><p>参数<br>sequences：浮点数或整数构成的两层嵌套列表<br>maxlen：None或整数，为序列的最大长度。大于此长度的序列将被截短，小于此长度的序列将在后部填0.<br>dtype：返回的numpy array的数据类型<br>padding：‘pre’或‘post’，确定当需要补0时，在序列的起始还是结尾补<br>truncating：‘pre’或‘post’，确定当需要截断序列时，从起始还是结尾截断<br>value：浮点数，此值将在填充时代替默认的填充值0<br>返回值<br>返回形如(nb_samples,nb_timesteps)的2D张量 </p>
 <p>（2）跳字skipgrams    (词向量？)<br>（3）获取采样表make_sampling_table(词向量？)   </p>
-<p>2.文本预处理<br>（1）句子分割text_to_word_sequence（本函数将一个句子拆分成单词构成的列表）</p>
-<pre><code>from keras.preprocessing import text
-text1 = &quot;the rain in Spain falls mainly on the plain&quot;
-text.text_to_word_sequence(text1, lower=True, split=&quot; &quot;)  
-</code></pre><p>输出：</p>
+<p>2.文本预处理<br>（1）句子分割text_to_word_sequence（本函数将一个句子拆分成单词构成的列表）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> text</div><div class="line">text1 = <span class="string">"the rain in Spain falls mainly on the plain"</span></div><div class="line">text.text_to_word_sequence(text1, lower=<span class="keyword">True</span>, split=<span class="string">" "</span>)</div></pre></td></tr></table></figure></p>
+<p>输出：</p>
 <pre><code>[&apos;the&apos;, &apos;rain&apos;, &apos;in&apos;, &apos;spain&apos;, &apos;falls&apos;, &apos;mainly&apos;, &apos;on&apos;, &apos;the&apos;, &apos;plain&apos;]
 </code></pre><p>参数<br>text：字符串，待处理的文本<br>filters：需要滤除的字符的列表或连接形成的字符串，例如标点符号。默认值为base_filter()，包含标点符号，制表符和换行符等<br>lower：布尔值，是否将序列设为小写形式<br>split：字符串，单词的分隔符，如空格<br>返回值<br>字符串列表  </p>
 <p>（2）one-hot编码(本函数将一段文本编码为one-hot形式的码，即仅记录词在词典中的下标。)    </p>
@@ -401,7 +394,7 @@ array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
 <p>texts_to_matrix(texts, mode)：<br>texts：待向量化的文本列表<br>mode：‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’<br>返回值：形如(len(texts), nb_words)的numpy array  </p>
 <p>fit_on_sequences(sequences):<br>sequences：要用以训练的序列列表    </p>
 <p>sequences_to_matrix(sequences):<br>sequences：待向量化的序列列表<br>mode：‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’<br>返回值：形如(len(sequences), nb_words)的numpy array     </p>
-<p>属性<br>word_counts:字典，将单词（字符串）映射为它们在训练期间出现的次数。仅在调用fit_on_texts之后设置。<br>word_docs: 字典，将单词（字符串）映射为它们在训练期间所出现的文档或文本的数量。仅在调用fit_on_texts之后设置。<br>word_index: 字典，将单词（字符串）映射为它们的排名或者索引。仅在调用fit_on_texts之后设置。<br>document_count: 整数。分词器被训练的文档（文本或者序列）数量。仅在调用fit_on_texts或fit_on_sequences之后设置。      </p>
+<p>属性<br>word_counts:字典，将单词（字符串）映射为它们在训练期间出现的次数。仅在调用fit_on_texts之后设置。<br>word_docs: 字典，将单词（字符串）映射为它们在训练期间所出现的文档或文本的数量。仅在调用fit_on_texts之后设置。<br>word_index: 字典，将单词（字符串）映射为它们的排名或者索引。仅在调用fit_on_texts之后设置。<br>document_count: 整数。分词器被训练的文档（文本或者序列）数量。仅在调用fit_on_texts或fit_on_sequences之后设置。</p>
 
       
     </div>
@@ -416,6 +409,27 @@ array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/alipay.jpg" alt="sunchenglin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="sunchenglin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -447,6 +461,10 @@ array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/09/句法分析工具/" rel="prev" title="句法分析工具">
+                句法分析工具 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -508,7 +526,7 @@ array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
                alt="sunchenglin" />
           <p class="site-author-name" itemprop="name">sunchenglin</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">瘦成闪电，hiahiahai</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -516,7 +534,7 @@ array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -547,6 +565,24 @@ array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/xyh153996626" title="夏宇航" target="_blank">夏宇航</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.qiujiahui.com/" title="邱家辉" target="_blank">邱家辉</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         

@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/05/中文维基百科做词向量/index.html">
 <meta property="og:site_name" content="sunchenglin">
 <meta property="og:description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexonpm install -g hexo-cli在本地目录创建一个文件夹,">
-<meta property="og:updated_time" content="2017-05-07T11:12:22.862Z">
+<meta property="og:updated_time" content="2017-05-07T14:40:53.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建git-github-hexo博客">
 <meta name="twitter:description" content="1.安装git（因为要给github上传文章）git官网(http://git-scm.com)   2.安装node.js（因为Hexo是基于Node.js开发的）node官网(https://nodejs.org/en/)   3.hexo安装及配置（配置到github上，使用github域名）   使用npm安装Hexonpm install -g hexo-cli在本地目录创建一个文件夹,">
@@ -380,10 +380,11 @@ deploy:
   repository: git@github.com:用户名/用户名.github.io.git
   branch: master
 </code></pre><p>保存，cd到Hexo的根目录<br>依次执行下面的命令  </p>
-<pre><code>hexo clean  
-  hexo g #generate  
-  hexo d #deployment
-</code></pre><p>  如果成功的话在浏览器输入(<a href="http://用户名.github.io" target="_blank" rel="external">http://用户名.github.io</a>) 就可以访问博客了</p>
+<pre><code class="python">hexo clean  
+hexo g <span class="comment">#generate  </span>
+hexo d <span class="comment">#deployment</span>
+</code></pre>
+<p>  如果成功的话在浏览器输入(<a href="http://用户名.github.io" target="_blank" rel="external">http://用户名.github.io</a>) 就可以访问博客了</p>
 <p>  如果发布的时候出现错误：ERROR Deployer not found: git 即用来发布文章的git没有安装<br>  执行命令 <code>npm install hexo-deployer-git --save</code></p>
 <p>4.安装hexo-admin插件（可视化界面，写文章比较方便）  </p>
 <pre><code>cd Hexo
@@ -392,8 +393,10 @@ hexo server -d
 open http://localhost:4000/admin/
 </code></pre><p>markdown语法参考：<br><a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a>  </p>
 <p>也可以手动创建文章<br><code>hexo new &quot;文章标题&quot;</code><br>执行下面命令即可直接发布文章<br><code>hexo d -g</code><br>如果发布时候出现错误 ERROR Deployer not found: git<br>执行<br><code>npm install hexo-deployer-git --save</code>  </p>
-<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>然后把图片放入对应文章的配套文件夹下，比如1.png<br><code>![](github-hexo-blog/1.png)</code><br>更改代码样式主题<br>/source/css/_partial/highlight.styl  </p>
-<p>参考：<a href="http://www.codertian.com/" target="_blank" rel="external">http://www.codertian.com/</a><br><a href="https://www.zybuluo.com/heavysheep/note/665438" target="_blank" rel="external">https://www.zybuluo.com/heavysheep/note/665438</a><br><a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="external">http://theme-next.iissnan.com/tag-plugins.html</a></p>
+<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>然后把图片放入对应文章的配套文件夹下，比如1.png<br><code>![](github-hexo-blog/1.png)</code><br>更改代码样式主题<br>/source/css/_partial/highlight.styl </p>
+<p>Hexo添加Toc支持，生成文章目录<br><a href="https://imys.net/20150514/hexo-toc.html" target="_blank" rel="external">https://imys.net/20150514/hexo-toc.html</a></p>
+<p>站内搜索<br><a href="https://imys.net/20160511/hexo-search.html" target="_blank" rel="external">https://imys.net/20160511/hexo-search.html</a></p>
+<p>参考：<a href="http://www.codertian.com/" target="_blank" rel="external">http://www.codertian.com/</a><br><a href="https://www.zybuluo.com/heavysheep/note/665438" target="_blank" rel="external">https://www.zybuluo.com/heavysheep/note/665438</a><br><a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="external">http://theme-next.iissnan.com/tag-plugins.html</a><br><a href="http://col.dog/2015/11/22/Markdown-Syntax/" target="_blank" rel="external">http://col.dog/2015/11/22/Markdown-Syntax/</a></p>
 
       
     </div>
@@ -408,6 +411,27 @@ open http://localhost:4000/admin/
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/alipay.jpg" alt="sunchenglin WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="sunchenglin Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -504,7 +528,7 @@ open http://localhost:4000/admin/
                alt="sunchenglin" />
           <p class="site-author-name" itemprop="name">sunchenglin</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">瘦成闪电，hiahiahai</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -512,7 +536,7 @@ open http://localhost:4000/admin/
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -543,6 +567,24 @@ open http://localhost:4000/admin/
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/xyh153996626" title="夏宇航" target="_blank">夏宇航</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.qiujiahui.com/" title="邱家辉" target="_blank">邱家辉</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         

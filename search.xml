@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[句法分析工具]]></title>
+      <url>/2017/05/09/%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/</url>
+      <content type="html"><![CDATA[<h4 id="哈工大ltp"><a href="#哈工大ltp" class="headerlink" title="哈工大ltp"></a>哈工大ltp</h4><h4 id="斯坦福-parser"><a href="#斯坦福-parser" class="headerlink" title="斯坦福 parser"></a>斯坦福 parser</h4>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[keras预处理教程]]></title>
+      <url>/2017/05/06/%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E5%81%9A%E8%AF%8D%E5%90%91%E9%87%8F-2/</url>
+      <content type="html"><![CDATA[<p>1.序列预处理<br>（1）填充序列pad_sequences<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> sequence</div><div class="line">sequences = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</div><div class="line">sequence.pad_sequences(sequences, maxlen=<span class="number">4</span>, dtype=<span class="string">'int32'</span>,padding=<span class="string">'post'</span>, truncating=<span class="string">'post'</span>, value=<span class="number">0.</span>)</div></pre></td></tr></table></figure></p>
+<p>   结果：  </p>
+<pre><code>array([[1, 2, 3, 0],
+   [1, 2, 3, 4],
+   [1, 2, 3, 4]], dtype=int32)
+</code></pre><p>参数<br>sequences：浮点数或整数构成的两层嵌套列表<br>maxlen：None或整数，为序列的最大长度。大于此长度的序列将被截短，小于此长度的序列将在后部填0.<br>dtype：返回的numpy array的数据类型<br>padding：‘pre’或‘post’，确定当需要补0时，在序列的起始还是结尾补<br>truncating：‘pre’或‘post’，确定当需要截断序列时，从起始还是结尾截断<br>value：浮点数，此值将在填充时代替默认的填充值0<br>返回值<br>返回形如(nb_samples,nb_timesteps)的2D张量 </p>
+<p>（2）跳字skipgrams    (词向量？)<br>（3）获取采样表make_sampling_table(词向量？)   </p>
+<p>2.文本预处理<br>（1）句子分割text_to_word_sequence（本函数将一个句子拆分成单词构成的列表）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> text</div><div class="line">text1 = <span class="string">"the rain in Spain falls mainly on the plain"</span></div><div class="line">text.text_to_word_sequence(text1, lower=<span class="keyword">True</span>, split=<span class="string">" "</span>)</div></pre></td></tr></table></figure></p>
+<p>输出：</p>
+<pre><code>[&apos;the&apos;, &apos;rain&apos;, &apos;in&apos;, &apos;spain&apos;, &apos;falls&apos;, &apos;mainly&apos;, &apos;on&apos;, &apos;the&apos;, &apos;plain&apos;]
+</code></pre><p>参数<br>text：字符串，待处理的文本<br>filters：需要滤除的字符的列表或连接形成的字符串，例如标点符号。默认值为base_filter()，包含标点符号，制表符和换行符等<br>lower：布尔值，是否将序列设为小写形式<br>split：字符串，单词的分隔符，如空格<br>返回值<br>字符串列表  </p>
+<p>（2）one-hot编码(本函数将一段文本编码为one-hot形式的码，即仅记录词在词典中的下标。)    </p>
+<pre><code>from keras.preprocessing import text
+n = 13
+text1 = &quot;the rain in Spain falls mainly on the plain&quot;
+text.one_hot(text1, n, lower=True, split=&quot; &quot;)
+</code></pre><p>   输出：</p>
+<pre><code>[5, 6, 4, 7, 4, 5, 1, 5, 2]
+</code></pre><p>   感觉此方法不靠谱，按理在n&gt;=9时，输出中编码中不应有超过2次的编码。（本例中出现最多的单词为the，出现次数为2）</p>
+<p>  参数<br>n：整数，字典长度<br>返回值<br>整数列表，每个整数是[1,n]之间的值，代表一个单词（不保证唯一性，即如果词典长度不够，不同的单词可能会被编为同一个码）。  </p>
+<p>（3）分词器Tokenizer（用于向量化文本，或将文本转换为序列（即单词在字典中的下标构成的列表，从1算起）的类。）</p>
+<pre><code>In[1]:
+from keras.preprocessing import text
+import numpy as np
+tokenizer = text.Tokenizer(num_words=None,lower=True, split=&quot; &quot;)
+texts = [&quot; rain  in Spain falls mainly on the the plain&quot;,&quot;the rain &quot;,&quot;the rain in &quot;]
+tokenizer.fit_on_texts(np.asarray(texts))
+tokenizer.texts_to_sequences(np.asarray(texts))
+Out[1]:
+[[2, 3, 4, 5, 6, 7, 1, 1, 8], [1, 2], [1, 2, 3]]
+In[2]:
+tokenizer.texts_to_matrix(texts,mode=&apos;count&apos;) #‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’
+Out[2]:
+array([[ 0.,  2.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
+   [ 0.,  1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.],
+   [ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.]])
+In[3]:
+sequences = [[1,2,3],[1,2,3,4],[1,2,3,4,5,6]]
+# tokenizer.fit_on_sequences(sequences)
+tokenizer.sequences_to_matrix(sequences)
+Out[3]:  
+array([[ 0.,  1.,  1.,  1.,  0.,  0.,  0.,  0.,  0.],
+   [ 0.,  1.,  1.,  1.,  1.,  0.,  0.,  0.,  0.],
+   [ 0.,  1.,  1.,  1.,  1.,  1.,  1.,  0.,  0.]])
+</code></pre><p>   构造参数</p>
+<p>与text_to_word_sequence同名参数含义相同<br>nb_words：None或整数，处理的最大单词数量。若被设置为整数，则分词器将被限制为处理数据集中最常见的nb_words个单词<br>类方法</p>
+<p>fit_on_texts(texts)<br>texts：要用以训练的文本列表  </p>
+<p>texts_to_sequences(texts)<br>texts：待转为序列的文本列表<br>返回值：序列的列表，列表中每个序列对应于一段输入文本  </p>
+<p>texts_to_sequences_generator(texts)<br>本函数是texts_to_sequences的生成器函数版<br>texts：待转为序列的文本列表<br>返回值：每次调用返回对应于一段输入文本的序列  </p>
+<p>texts_to_matrix(texts, mode)：<br>texts：待向量化的文本列表<br>mode：‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’<br>返回值：形如(len(texts), nb_words)的numpy array  </p>
+<p>fit_on_sequences(sequences):<br>sequences：要用以训练的序列列表    </p>
+<p>sequences_to_matrix(sequences):<br>sequences：待向量化的序列列表<br>mode：‘binary’，‘count’，‘tfidf’，‘freq’之一，默认为‘binary’<br>返回值：形如(len(sequences), nb_words)的numpy array     </p>
+<p>属性<br>word_counts:字典，将单词（字符串）映射为它们在训练期间出现的次数。仅在调用fit_on_texts之后设置。<br>word_docs: 字典，将单词（字符串）映射为它们在训练期间所出现的文档或文本的数量。仅在调用fit_on_texts之后设置。<br>word_index: 字典，将单词（字符串）映射为它们的排名或者索引。仅在调用fit_on_texts之后设置。<br>document_count: 整数。分词器被训练的文档（文本或者序列）数量。仅在调用fit_on_texts或fit_on_sequences之后设置。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[搭建git-github-hexo博客]]></title>
+      <url>/2017/05/05/%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E5%81%9A%E8%AF%8D%E5%90%91%E9%87%8F/</url>
+      <content type="html"><![CDATA[<p>1.安装git（因为要给github上传文章）<br>git官网(<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a>)  </p>
+<p>2.安装node.js（因为Hexo是基于Node.js开发的）<br>node官网(<a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a>)  </p>
+<p>3.hexo安装及配置（配置到github上，使用github域名）  </p>
+<p>使用npm安装Hexo<br><code>npm install -g hexo-cli</code><br>在本地目录创建一个文件夹,比如创建一个Hexo文件夹<br><code>cd Hexo</code><br>依次执行下面的命令<br><code>hexo init  
+npm install</code></p>
+<p>Hexo文件夹下出现许多文件<br>启动本地这个Hexo服务 ：<br><code>hexo server</code><br>然后打开浏览器，输入<a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>                   </p>
+<p>主题更换<br><code>cd themes</code><br><code>git clone https://github.com/litten/hexo-theme-yilia.git</code><br>Hexo文件夹下面的_config.yml文件，修改里面的<code>theme:hexo-theme-yilia</code></p>
+<p>配置github<br>创建repository，名称：<code>用户名.github.io</code></p>
+<p>配置本地Hexo<br>打开Hexo目录下的_config.yml，最下面添加</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: git@github.com:用户名/用户名.github.io.git
+  branch: master
+</code></pre><p>保存，cd到Hexo的根目录<br>依次执行下面的命令  </p>
+<pre><code class="python">hexo clean  
+hexo g <span class="comment">#generate  </span>
+hexo d <span class="comment">#deployment</span>
+</code></pre>
+<p>  如果成功的话在浏览器输入(<a href="http://用户名.github.io" target="_blank" rel="external">http://用户名.github.io</a>) 就可以访问博客了</p>
+<p>  如果发布的时候出现错误：ERROR Deployer not found: git 即用来发布文章的git没有安装<br>  执行命令 <code>npm install hexo-deployer-git --save</code></p>
+<p>4.安装hexo-admin插件（可视化界面，写文章比较方便）  </p>
+<pre><code>cd Hexo
+npm install --save hexo-admin
+hexo server -d
+open http://localhost:4000/admin/
+</code></pre><p>markdown语法参考：<br><a href="http://www.appinn.com/markdown/#code" target="_blank" rel="external">http://www.appinn.com/markdown/#code</a>  </p>
+<p>也可以手动创建文章<br><code>hexo new &quot;文章标题&quot;</code><br>执行下面命令即可直接发布文章<br><code>hexo d -g</code><br>如果发布时候出现错误 ERROR Deployer not found: git<br>执行<br><code>npm install hexo-deployer-git --save</code>  </p>
+<p>文章图片插入<br>用到Hexo的一个插件，首先cd到hexo的根目录,安装<br><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code><br>然后把图片放入对应文章的配套文件夹下，比如1.png<br><code>![](github-hexo-blog/1.png)</code><br>更改代码样式主题<br>/source/css/_partial/highlight.styl </p>
+<p>Hexo添加Toc支持，生成文章目录<br><a href="https://imys.net/20150514/hexo-toc.html" target="_blank" rel="external">https://imys.net/20150514/hexo-toc.html</a></p>
+<p>站内搜索<br><a href="https://imys.net/20160511/hexo-search.html" target="_blank" rel="external">https://imys.net/20160511/hexo-search.html</a></p>
+<p>参考：<a href="http://www.codertian.com/" target="_blank" rel="external">http://www.codertian.com/</a><br><a href="https://www.zybuluo.com/heavysheep/note/665438" target="_blank" rel="external">https://www.zybuluo.com/heavysheep/note/665438</a><br><a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="external">http://theme-next.iissnan.com/tag-plugins.html</a><br><a href="http://col.dog/2015/11/22/Markdown-Syntax/" target="_blank" rel="external">http://col.dog/2015/11/22/Markdown-Syntax/</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 自然语言处理 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[中文维基百科做词向量]]></title>
+      <url>/2017/05/03/%E4%B8%AD%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E5%81%9A%E8%AF%8D%E5%90%91%E9%87%8F-1/</url>
+      <content type="html"><![CDATA[<p>1.下载中文wiki dump<br>链接是：<a href="http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2" target="_blank" rel="external">http://download.wikipedia.com/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2</a><br>包括：标题、正文部分   </p>
+<p>2.使用Wikipedia Extractor 抽取正文文本<br>wiki下载下来为xml格式，将抽取到得文本内容存储在zhwiki_extracted文件夹下。<br><code>$ git clone https://github.com/attardi/wikiextractor.git wikiextractor</code><br><code>$ wikiextractor/WikiExtractor.py  -b 2000M -o zhwiki_extracted zhwiki-latest-pages-articles.xml.bz2</code></p>
+<p>由于这个工具就是一个python脚本，因此无需安装，-b  2000M表示以 2000M 为单位切分文件，默认是 500K。如果要将所有内容保存在同一个文件，那么就需要把这个参数设得大一下，-o 的参数指提取出来的文件放置的目录，抽取出来的文件的路径为zhwiki_extract/AA/wiki_00。更多参数可参考其github主页的说明。  </p>
+<p>3.繁简转换<br>维基百科的中文数据是繁简混杂的，里面包含大陆简体、台湾繁体、港澳繁体等多种不同的数据。有时候在一篇文章的不同段落间也会使用不同的繁简字。采用的工具也是开源的 OpenCC 转换器。使用方法如下：</p>
+<p>下载opencc：<a href="https://code.google.com/archive/p/opencc/downloads" target="_blank" rel="external">https://code.google.com/archive/p/opencc/downloads</a><br><code>opencc -i wiki_00 -o wiki_chs -c zht2zhs.ini</code></p>
+<p>维基百科使用的繁简转换方法是以词表为准，外加人工修正。人工修正之后的文字是这种格式，多数是为了解决各地术语名称不同的问题：</p>
+<blockquote>
+<p>他的主要成就包括Emacs及後來的GNU Emacs，GNU C 編譯器及-{zh-hant:GNU 除錯器;zh-hans:GDB 调试器}-。</p>
+</blockquote>
+<p>在python中使用下面代码替换：  </p>
+<pre><code>import re
+multi_version = re.compile(&apos;-\{.*?(zh-hans|zh-cn):([^;]*?)(;.*?)?\}-&apos;)  
+line = multi_version.sub(r&apos;\2&apos;, line)
+</code></pre><p>具体参考：<br><code>https://git.oschina.net/sunchenglin_/sougou_qarank/blob/master/wiki_de_symbol.py?dir=0&amp;filepath=wiki_de_symbol.py&amp;oid=a2b61ec915e159d88d4d6c6f31f4e9af1d8c788e&amp;sha=ba5721480198c73daf8511aaf3762e129acb1ddb</code></p>
+<p>keras生成word2vec词向量代码链接：</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2017/05/03/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="quick-start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+</search>
