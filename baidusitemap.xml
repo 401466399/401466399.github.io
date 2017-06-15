@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/06/05/%E9%87%87%E6%A0%B7/</loc>
+    <lastmod>2017-06-15T12:04:56.016Z</lastmod>
+    <data>
+        <display>
+        <title>采样</title>
+        <pubTime>2017-06-05T11:45:54.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/05/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2017-06-15T11:55:37.808Z</lastmod>
     <data>
@@ -25,21 +40,6 @@
         <display>
         <title>linux常用命令</title>
         <pubTime>2017-05-09T03:17:34.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/06/05/%E9%87%87%E6%A0%B7/</loc>
-    <lastmod>2017-06-15T11:53:18.072Z</lastmod>
-    <data>
-        <display>
-        <title>采样</title>
-        <pubTime>2017-06-05T11:45:54.000Z</pubTime>
         
          
            
