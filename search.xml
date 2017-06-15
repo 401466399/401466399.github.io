@@ -3,9 +3,172 @@
   
     
     <entry>
+      <title><![CDATA[pandas笔记]]></title>
+      <url>/2017/06/07/pandas%E7%AC%94%E8%AE%B0-2/</url>
+      <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 离散型特征进行one-hot编码</span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line">df = pd.DataFrame([  </div><div class="line">            [<span class="string">'green'</span>, <span class="string">'M'</span>, <span class="number">10.1</span>, <span class="string">'class1'</span>],   </div><div class="line">            [<span class="string">'red'</span>, <span class="string">'L'</span>, <span class="number">13.5</span>, <span class="string">'class2'</span>],   </div><div class="line">            [<span class="string">'blue'</span>, <span class="string">'XL'</span>, <span class="number">15.3</span>, <span class="string">'class1'</span>]])  </div><div class="line">df.columns = [<span class="string">'color'</span>, <span class="string">'size'</span>, <span class="string">'prize'</span>, <span class="string">'class label'</span>]  </div><div class="line">size_mapping = &#123;  </div><div class="line">           <span class="string">'XL'</span>: <span class="number">3</span>,  </div><div class="line">           <span class="string">'L'</span>: <span class="number">2</span>,  </div><div class="line">           <span class="string">'M'</span>: <span class="number">1</span>&#125;  </div><div class="line">df[<span class="string">'size'</span>] = df[<span class="string">'size'</span>].map(size_mapping)  </div><div class="line"></div><div class="line">class_mapping = &#123;label:idx <span class="keyword">for</span> idx,label <span class="keyword">in</span> enumerate(set(df[<span class="string">'class label'</span>]))&#125; </div><div class="line"></div><div class="line">df[<span class="string">'class label'</span>] = df[<span class="string">'class label'</span>].map(class_mapping) </div><div class="line"></div><div class="line"></div><div class="line">df</div><div class="line"></div><div class="line">pd.get_dummies(df)</div></pre></td></tr></table></figure>
+<p><img src="\\images\pasted-2.png\" alt="upload successful"></p>
+<p><img src="\\images\pasted-3.png\" alt="upload successful"></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[采样]]></title>
+      <url>/2017/06/05/%E9%87%87%E6%A0%B7/</url>
+      <content type="html"><![CDATA[<p>过采样(over-sampling)：增加小类的copy，达到平衡<br>欠采样(under-sampling)：删除一些大类的实例，达到平衡<br>参考工具包<br><a href="http://contrib.scikit-learn.org/imbalanced-learn/generated/imblearn.over_sampling.SMOTE.html" target="_blank" rel="external">http://contrib.scikit-learn.org/imbalanced-learn/generated/imblearn.over_sampling.SMOTE.html</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux 命令]]></title>
+      <url>/2017/06/01/linux-%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<p>vi 来建立一个名为 test.txt<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi test.txt</div></pre></td></tr></table></figure></p>
+<p>在一般模式之中，只要按下 i, o, a 等字符就可以进入输入模式了！<br>按下 ESC 按钮回到一般模式，<br>在一般模式中按下 :wq 储存后离开（保存离开） vi</p>
+<p>:w    将编辑的数据写入硬盘档案中(常用)<br>:q    离开 vi (常用)<br>:q!    若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。<br>:wq    储存后离开，若为 :wq! 则为强制储存后离开 (常用)</p>
+<p>参考：<br><a href="http://www.runoob.com/linux/linux-vim.html" target="_blank" rel="external">http://www.runoob.com/linux/linux-vim.html</a></p>
+<p>查看当前路径命令：pwd</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[xgboost入门]]></title>
+      <url>/2017/05/28/xgboost%E5%85%A5%E9%97%A8/</url>
+      <content type="html"><![CDATA[<p>windows安装教程：<br>先安装gitbash<br><a href="https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows?lang=zh" target="_blank" rel="external">https://www.ibm.com/developerworks/community/blogs/jfp/entry/Installing_XGBoost_For_Anaconda_on_Windows?lang=zh</a></p>
+<p>学习demo教程：<br>参考<a href="http://machinelearningmastery.com/xgboost-python-mini-course/" target="_blank" rel="external">http://machinelearningmastery.com/xgboost-python-mini-course/</a></p>
+<p>具体参数：<br>参考<a href="http://blog.csdn.net/wzmsltw/article/details/50994481" target="_blank" rel="external">http://blog.csdn.net/wzmsltw/article/details/50994481</a></p>
+<p>xgboost自定义目标函数：<br>参考<br><a href="https://github.com/dmlc/xgboost/blob/master/demo/guide-python/custom_objective.py" target="_blank" rel="external">https://github.com/dmlc/xgboost/blob/master/demo/guide-python/custom_objective.py</a><br><a href="http://blog.csdn.net/lujiandong1/article/details/52791117" target="_blank" rel="external">http://blog.csdn.net/lujiandong1/article/details/52791117</a><br><a href="http://www.cnblogs.com/zle1992/p/6914577.html" target="_blank" rel="external">http://www.cnblogs.com/zle1992/p/6914577.html</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[为什么在python下推荐使用多进程而不是多线程]]></title>
+      <url>/2017/05/22/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8python%E4%B8%8B%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%80%8C%E4%B8%8D%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>为什么在Python里推荐使用多进程而不是多线程？<br>参考：<a href="http://m.blog.csdn.net/article/details?id=51243137" target="_blank" rel="external">http://m.blog.csdn.net/article/details?id=51243137</a><br>首先强调背景：<br>1、GIL是什么？<br>GIL的全称是Global Interpreter Lock(全局解释器锁)，来源是python设计之初的考虑，为了数据安全所做的决定。<br>2、每个CPU在同一时间只能执行一个线程（在单核CPU下的多线程其实都只是并发，不是并行，并发和并行从宏观上来讲都是同时处理多路请求的概念。但并发和并行又有区别，并行是指两个或者多个事件在同一时刻发生；而并发是指两个或多个事件在同一时间间隔内发生。）</p>
+<p>在Python多线程下，每个线程的执行方式：<br>1、获取GIL<br>2、执行代码直到sleep或者是python虚拟机将其挂起。<br>3、释放GIL        </p>
+<p>可见，某个线程想要执行，必须先拿到GIL，我们可以把GIL看作是“通行证”，并且在一个python进程中，GIL只有一个。拿不到通行证的线程，就不允许进入CPU执行。        </p>
+<p>在Python2.x里，GIL的释放逻辑是当前线程遇见IO操作或者ticks计数达到100（ticks可以看作是Python自身的一个计数器，专门做用于GIL，每次释放后归零，这个计数可以通过 sys.setcheckinterval 来调整），进行释放。        </p>
+<p>而每次释放GIL锁，线程进行锁竞争、切换线程，会消耗资源。并且由于GIL锁存在，python里一个进程永远只能同时执行一个线程(拿到GIL的线程才能执行)，这就是为什么在多核CPU上，python的多线程效率并不高。        </p>
+<p>那么是不是python的多线程就完全没用了呢？<br>在这里我们进行分类讨论：<br>1、CPU密集型代码(各种循环处理、计数等等)，在这种情况下，由于计算工作多，ticks计数很快就会达到阈值，然后触发GIL的释放与再竞争（多个线程来回切换当然是需要消耗资源的），所以python下的多线程对CPU密集型代码并不友好。        </p>
+<p>2、IO密集型代码(文件处理、网络爬虫等)，多线程能够有效提升效率(单线程下有IO操作会进行IO等待，造成不必要的时间浪费，而开启多线程能在线程A等待时，自动切换到线程B，可以不浪费CPU的资源，从而能提升程序执行效率)。所以python的多线程对IO密集型代码比较友好。        </p>
+<p>而在python3.x中，GIL不使用ticks计数，改为使用计时器（执行时间达到阈值后，当前线程释放GIL），这样对CPU密集型程序更加友好，但依然没有解决GIL导致的同一时间只能执行一个线程的问题，所以效率依然不尽如人意。        </p>
+<p>请注意：多核多线程比单核多线程更差，原因是单核下多线程，每次释放GIL，唤醒的那个线程都能获取到GIL锁，所以能够无缝执行，但多核下，CPU0释放GIL后，其他CPU上的线程都会进行竞争，但GIL可能会马上又被CPU0拿到，导致其他几个CPU上被唤醒后的线程会醒着等待到切换时间后又进入待调度状态，这样会造成线程颠簸(thrashing)，导致效率更低</p>
+<p>回到最开始的问题：经常我们会听到老手说：“python下想要充分利用多核CPU，就用多进程”，原因是什么呢？        </p>
+<p>原因是：每个进程有各自独立的GIL，互不干扰，这样就可以真正意义上的并行执行，所以在python中，多进程的执行效率优于多线程(仅仅针对多核CPU而言)。        </p>
+<p>所以在这里说结论：多核下，想做并行提升效率，比较通用的方法是使用多进程，能够有效提高执行效率</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[python多线程]]></title>
+      <url>/2017/05/22/python%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> threading</div><div class="line">banlance = <span class="number">0</span></div><div class="line">lock = threading.Lock()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_it</span><span class="params">(n)</span>:</span></div><div class="line">  <span class="keyword">global</span> banlance</div><div class="line">  banlance += n</div><div class="line">  <span class="comment"># banlance -= n</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_thread</span><span class="params">(n)</span>:</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">      lock.acquire()</div><div class="line">      <span class="keyword">try</span>:</div><div class="line">          change_it(n)</div><div class="line">      <span class="keyword">finally</span>:</div><div class="line">          lock.release()</div><div class="line"></div><div class="line">t1 = threading.Thread(target=run_thread, args=(<span class="number">5</span>,))</div><div class="line">t2 = threading.Thread(target=run_thread, args=(<span class="number">8</span>,))</div><div class="line"></div><div class="line">t1.start()</div><div class="line">t2.start()</div><div class="line">t1.join()</div><div class="line">t2.join()</div><div class="line"></div><div class="line">print(banlance)</div></pre></td></tr></table></figure>
+<p>多线程和多进程最大的不同在于，多进程中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响，而多线程中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改，因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了。</p>
+<p>由于锁只有一个，无论多少线程，同一时刻最多只有一个线程持有该锁，所以，不会造成修改的冲突。创建一个锁就是通过threading.Lock()来实现</p>
+<p>多任务可以由多进程完成，也可以由一个进程内的多线程完成.</p>
+<p>参考  <a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143192823818768cd506abbc94eb5916192364506fa5d000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143192823818768cd506abbc94eb5916192364506fa5d000</a><br><a href="http://www.jianshu.com/p/c5146ae8c631#" target="_blank" rel="external">http://www.jianshu.com/p/c5146ae8c631#</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[python 爬虫]]></title>
+      <url>/2017/05/11/python-%E7%88%AC%E8%99%AB/</url>
+      <content type="html"><![CDATA[<h4 id="网页下载"><a href="#网页下载" class="headerlink" title="网页下载"></a>网页下载</h4><h5 id="用模拟浏览器下载代码"><a href="#用模拟浏览器下载代码" class="headerlink" title="用模拟浏览器下载代码"></a>用模拟浏览器下载代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">q = urllib.parse.quote(<span class="string">"周杰伦老婆"</span>)</div><div class="line">url = <span class="string">'https://www.baidu.com/s?ie=utf-8&amp;f=3&amp;rsv_bp=1&amp;rsv_idx=2&amp;tn=baiduhome_pg&amp;wd='</span>+q+<span class="string">'&amp;rsv_spt=1&amp;oq=%25E5%258C%2597%25E4%25BA%25AC%25E9%2580%259A%25E5%25B7%259E%25E5%258F%25B0%25E6%25B9%2596%25E4%25BA%25A4%25E8%25AD%25A6%25E9%2598%259F%25E7%2594%25B5%25E8%25AF%259D&amp;rsv_pq=99e023320002b013&amp;rsv_t=91947DqSAjpr8dDgDYAlQl4gJRRm7fFGORDcBi1q6rGvlq0FpV4p3%2BAHoBRovH%2Br80ix&amp;rqlang=cn&amp;rsv_enter=0&amp;inputT=626&amp;rsv_n=2&amp;rsv_sug3=11&amp;rsv_sug1=4&amp;rsv_sug7=100&amp;prefixsug=%25E4%25BA%25AC%25E4%25B8%259C%25E4%25BA%25BA%25E5%25B7%25A5%25E5%25AE%25A2%25E6%259C%258D%25E7%2594%25B5%25E8%25AF%259D&amp;rsp=0&amp;rsv_sug4=626'</span> <span class="comment">#百度搜索网页</span></div><div class="line">head = &#123;&#125;</div><div class="line"><span class="comment"># 写入User Agent信息</span></div><div class="line">head[<span class="string">'User-Agent'</span>] = <span class="string">'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'</span></div><div class="line"><span class="comment"># 创建Request对象</span></div><div class="line">req = request.Request(url, headers=head)</div><div class="line"><span class="comment"># 传入创建好的Request对象</span></div><div class="line">response = request.urlopen(req)</div><div class="line"><span class="comment"># 读取响应信息并解码</span></div><div class="line">html = response.read().decode(<span class="string">'utf-8'</span>)</div><div class="line">print(html)</div></pre></td></tr></table></figure>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="http://blog.csdn.net/c406495762/article/details/60137956" target="_blank" rel="external">http://blog.csdn.net/c406495762/article/details/60137956</a></p>
+<h5 id="踩的坑"><a href="#踩的坑" class="headerlink" title="踩的坑"></a>踩的坑</h5><ul>
+<li>url中中文处理<br>处理为%形式，q = urllib.parse.quote(“周杰伦老婆”)</li>
+<li>直接下载，被百度发现了，用了浏览器模拟，也可以用IP代理，还没尝试。<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#encoding:UTF-8</span></div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line">url = <span class="string">"http://www.baidu.com"</span></div><div class="line">data = urllib.request.urlopen(url).read()</div><div class="line">data = data.decode(<span class="string">'UTF-8'</span>)</div><div class="line">print(data)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="网页解析"><a href="#网页解析" class="headerlink" title="网页解析"></a>网页解析</h4><p>BeautifulSoup解析，使用select方法直接定位。</p>
+<h5 id="解析代码"><a href="#解析代码" class="headerlink" title="解析代码"></a>解析代码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line">soup = BeautifulSoup(f)</div><div class="line">targetContent = soup.select(<span class="string">"div .op_exactqa_s_answer"</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> targetContent:</div><div class="line">	<span class="keyword">print</span> (i.get_text())</div></pre></td></tr></table></figure>
+<h5 id="参考"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h5><p><a href="http://cuiqingcai.com/1319.html" target="_blank" rel="external">http://cuiqingcai.com/1319.html</a><br>BeautifulSou中文文档：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="external">https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/</a></p>
+<h5 id="踩的坑"><a href="#踩的坑-1" class="headerlink" title="踩的坑"></a>踩的坑</h5><p>json编码问题<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line">a = <span class="string">"我是中国人"</span> <span class="comment">#str类型</span></div><div class="line">a_str = json.dumps(a)</div><div class="line">a_str.encode(<span class="string">'utf-8'</span>)</div><div class="line"><span class="keyword">print</span> (a_str) <span class="comment">#str类型</span></div><div class="line"><span class="comment">#输出：</span></div><div class="line"><span class="comment">#"\u6211\u662f\u4e2d\u56fd\u4eba" 文本是utf-8类型，内容确是unicode内容。即使对结果进行encode("utf-8")，也无用。</span></div><div class="line"><span class="comment">#"我是中国人"</span></div><div class="line"><span class="comment">#可以使用 json.dumps(obj,ensure_ascii=False)</span></div></pre></td></tr></table></figure></p>
+<h5 id="参考"><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><p><a href="http://www.cnblogs.com/stubborn412/p/3818423.html" target="_blank" rel="external">http://www.cnblogs.com/stubborn412/p/3818423.html</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[机器学习常用算法]]></title>
+      <url>/2017/05/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>CRF，HMM(隐马模型)，MEMM(最大熵隐马模型)三者的比较，以及CRF++的教程<br><a href="http://blog.csdn.net/u013378306/article/details/54603926" target="_blank" rel="external">http://blog.csdn.net/u013378306/article/details/54603926</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[句法分析工具]]></title>
       <url>/2017/05/09/%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/</url>
-      <content type="html"><![CDATA[<h4 id="哈工大ltp"><a href="#哈工大ltp" class="headerlink" title="哈工大ltp"></a>哈工大ltp</h4><h4 id="斯坦福-parser"><a href="#斯坦福-parser" class="headerlink" title="斯坦福 parser"></a>斯坦福 parser</h4>]]></content>
+      <content type="html"><![CDATA[<h4 id="哈工大ltp-python版本"><a href="#哈工大ltp-python版本" class="headerlink" title="哈工大ltp python版本"></a>哈工大ltp python版本</h4><p>功能:</p>
+<ul>
+<li>分句</li>
+<li>分词<br>使用分词外部词典<br>使用个性化分词模型</li>
+<li>词性标注</li>
+<li>使用词性标注外部词典</li>
+<li>命名实体识别</li>
+<li>依存句法分析</li>
+<li>语义角色标注</li>
+<li>语义依存分析  </li>
+</ul>
+<p>实例教程：<a href="http://pyltp.readthedocs.io/zh_CN/latest/api.html#id19" target="_blank" rel="external">http://pyltp.readthedocs.io/zh_CN/latest/api.html#id19</a><br>文档：<a href="http://ltp.readthedocs.io/zh_CN/latest/appendix.html#id6" target="_blank" rel="external">http://ltp.readthedocs.io/zh_CN/latest/appendix.html#id6</a>  </p>
+<h4 id="斯坦福-parser"><a href="#斯坦福-parser" class="headerlink" title="斯坦福 parser"></a>斯坦福 parser</h4><p>java版本，NLTK （python）中加入stanford parser ，可以在python中使用   </p>
+<p>python中功能：</p>
+<ul>
+<li>StanfordSegmenter 中文分词</li>
+<li>StanfordTokenizer 英文分词</li>
+<li>StanfordNERTagger 命名实体识别</li>
+<li>StanfordPOSTagger 词性标注</li>
+<li>StanfordParser 短语句法分析</li>
+<li>StanfordDependencyParser 依存句法分析</li>
+</ul>
+<p>参考 <a href="http://www.zmonster.me/2016/06/08/use-stanford-nlp-package-in-nltk.html" target="_blank" rel="external">http://www.zmonster.me/2016/06/08/use-stanford-nlp-package-in-nltk.html</a></p>
+<h4 id="fudannlp"><a href="#Fudannlp" class="headerlink" title="Fudannlp"></a>Fudannlp</h4><p>功能：</p>
+<ul>
+<li>信息检索： 文本分类 新闻聚类</li>
+<li>中文处理： 中文分词 词性标注 实体名识别 关键词抽取 依存句法分析 时间短语识别</li>
+<li>结构化学习： 在线学习 层次分类 聚类  </li>
+</ul>
+<p>github：<a href="https://github.com/FudanNLP/fnlp" target="_blank" rel="external">https://github.com/FudanNLP/fnlp</a> </p>
+<h4 id="hanlp"><a href="#hanlp" class="headerlink" title="hanlp"></a>hanlp</h4><p>功能：</p>
+<ul>
+<li>中文分词</li>
+<li>词性标注</li>
+<li>命名实体识别</li>
+<li>关键词提取</li>
+<li>自动摘要</li>
+<li>短语提取</li>
+<li>拼音转换</li>
+<li>简繁转换</li>
+<li>文本推荐</li>
+<li>依存句法分析</li>
+<li>语料库工具</li>
+</ul>
+<p>github：<a href="https://github.com/hankcs/HanLP" target="_blank" rel="external">https://github.com/hankcs/HanLP</a><br>汉语树库：<br><a href="http://www.hankcs.com/nlp/corpus/chinese-treebank.html#comments" target="_blank" rel="external">http://www.hankcs.com/nlp/corpus/chinese-treebank.html#comments</a></p>
+<p>上述四种工具的依存分析实验：  <a href="http://cslt.riit.tsinghua.edu.cn/mediawiki/images/e/e5/%E5%8F%A5%E6%B3%95%E5%B7%A5%E5%85%B7%E5%88%86%E6%9E%90.pdf" target="_blank" rel="external">http://cslt.riit.tsinghua.edu.cn/mediawiki/images/e/e5/%E5%8F%A5%E6%B3%95%E5%B7%A5%E5%85%B7%E5%88%86%E6%9E%90.pdf</a></p>
+<p>句法分析常用软件（英文）<br>SpaCy<br>CoreNLP 斯坦福<br>SyntaxNet（<a href="https://github.com/tensorflow/models/tree/master/syntaxnet）和针对英文的Parsey" target="_blank" rel="external">https://github.com/tensorflow/models/tree/master/syntaxnet）和针对英文的Parsey</a> McParseface 谷歌，tensorflow  </p>
+<p>依存分析<br>中文依存句法分析性能本身就不如英文。其次现在的依存句法分析器都是统计学习得到的，所以如果你的应用领域的数据和训练数据（一般来说都是新闻）差别比较大的话，性能肯定不会太好。如果你有训练数据的话，就用MaltParser,MSTParser,或者目前论文上性能最好且开源的zpar，在适宜的训练数据上训练后再使用，没数据的话就用LTP或者stanford parser吧。<br>作者：李三水<br>链接：<a href="https://www.zhihu.com/question/21654266/answer/23641824" target="_blank" rel="external">https://www.zhihu.com/question/21654266/answer/23641824</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux常用命令]]></title>
+      <url>/2017/05/09/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"></content>
       
         
     </entry>
